@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: John.doe@gmail.com
+  first_name: John
+  last_name: Doe
+  phone_number: "415-133-5555"
+  password_digest: MyString
+
+two:
+  email: Jane.doe@gmail.com
+  first_name: Jane
+  last_name: Doe
+  phone_number: "415-133-5556"
+  password_digest: MyString

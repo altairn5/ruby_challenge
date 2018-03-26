@@ -18,3 +18,5 @@
 !/tmp/.keep
 instructions.md
 .byebug_history
+.env
+dump.rdb

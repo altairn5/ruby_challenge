@@ -72,10 +72,9 @@ GEM
       bcrypt (~> 3.1)
       jwt (~> 1.5)
       rails (>= 4.2)
-    listen (3.1.5)
+    listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -134,7 +133,6 @@ GEM
     redis (3.3.5)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
-    ruby_dep (1.5.0)
     safe_yaml (1.0.4)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -172,7 +170,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   json-schema (~> 2.8)
   knock (~> 2.1.1)
-  listen (>= 3.0.5, < 3.2)
+  listen (~> 3.0.5)
   minitest-spec-rails (~> 5.4)
   nokogiri (~> 1.7, >= 1.7.0.1)
   oj (~> 2.18, >= 2.18.2)
@@ -187,6 +185,9 @@ DEPENDENCIES
   timecop (~> 0.8.1)
   tzinfo-data
   webmock (~> 2.3, >= 2.3.2)
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.16.0

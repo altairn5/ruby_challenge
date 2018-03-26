@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 99.90
+  status: 0
+  customer: one
+
+two:
+  total:
+  status: 1
+  customer: two
