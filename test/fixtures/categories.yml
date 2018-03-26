@@ -1,7 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: "produce"
+  products:  one, two, five
 
 two:
-  name: MyString
+  name: "bakery"
+  products: three
+
+three:
+  name: "deli"
+  products:  four
+
+four:
+  name: "meats"
+  products:  six, seven

@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  total: 99.90
+  # total:
   status: 0
   customer: one
 
 two:
-  total:
-  status: 1
+  # total:
+  status: 0
   customer: two
+  products: one, two, five

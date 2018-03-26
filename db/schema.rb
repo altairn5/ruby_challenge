@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20180325221643) do
   create_table "categories_products", id: false, force: :cascade do |t|
     t.uuid "product_id"
     t.uuid "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_products_on_category_id"
     t.index ["product_id"], name: "index_categories_products_on_product_id"
   end
@@ -44,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180325221643) do
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "customer_id"
-    t.decimal "total"
+    t.decimal "total", precision: 15, scale: 2
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,15 +52,13 @@ ActiveRecord::Schema.define(version: 20180325221643) do
   create_table "placements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "order_id"
     t.uuid "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_placements_on_order_id"
     t.index ["product_id"], name: "index_placements_on_product_id"
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.decimal "price", precision: 15, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

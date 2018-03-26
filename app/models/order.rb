@@ -8,13 +8,13 @@ class Order < ApplicationRecord
 
   # default: :pending
   validates :total, numericality: { greater_than_or_equal_to: 0 }, presence: true
-  # validates :customer_id, presence: true
+  validates :customer_id, presence: true
 
   enum status: [:pending, :shipped, :delivered]
 
   private
 
   def get_total
-    self.total = self.products
+    self.total = self.products.map(&:price).sum
   end
 end

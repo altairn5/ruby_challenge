@@ -14,19 +14,15 @@ class ActiveSupport::TestCase
 
   # Includes helper methods modules to be used by all tests
   include JsonHelper
-  include SeedDbHelper
+  include AuthHelper
 
 
   # Add more helper methods to be used by all tests here...
 end
 
 class ActionDispatch::IntegrationTest
-  
-  include JsonHelper
-  include SeedDbHelper
 
-  def after_teardown
-    Sidekiq::Worker.clear_all
-    super
-  end
+  include JsonHelper
+  include AuthHelper
+
 end

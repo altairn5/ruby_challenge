@@ -8,4 +8,8 @@ class OrderTest < ActiveSupport::TestCase
     assert_respond_to(order, :total)
   end
 
+  it "total value exists" do
+    order = orders(:one)
+  end
+
 end
