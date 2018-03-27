@@ -1,0 +1,36 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "apples"
+  price: 9.99
+  # categories: one
+
+two:
+  name: "bananas"
+  price: 7.99
+  # categories: one
+
+three:
+  name: "donut" #doughnut
+  price: 1.99
+  # categories: two
+
+four:
+  name: "turkey"
+  price: 7.99
+  # categories: three
+
+five:
+  name: "romaine"
+  price: 3
+  # categories: one
+
+six:
+  name: "chicken"
+  price: 4.99
+  # categories: four
+
+seven:
+  name: "beef"
+  price: 10
+  # categories: four
