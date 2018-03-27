@@ -17,7 +17,6 @@ class ActiveSupport::TestCase
   include AuthHelper
 
 
-  # Add more helper methods to be used by all tests here...
 end
 
 class ActionDispatch::IntegrationTest

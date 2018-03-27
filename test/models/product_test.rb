@@ -1,13 +1,14 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  let(:product) {product.new}
+  let(:product) {products(:two)}
 
   it "has price field" do
     assert_respond_to(product, :price)
   end
 
-  # it "price value exists" do
-  #   product = products(:one)
-  # end
+  it "has many orders and categories" do
+     assert  product.orders.size > 0
+     assert  product.categories.size > 0
+  end
 end
