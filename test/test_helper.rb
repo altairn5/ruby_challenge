@@ -2,6 +2,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'webmock/minitest'
+require 'factory_bot'
+require 'ffaker'
 
 
 # include all support helpers
@@ -15,7 +17,7 @@ class ActiveSupport::TestCase
   # Includes helper methods modules to be used by all tests
   include JsonHelper
   include AuthHelper
-
+  include FactoryBot::Syntax::Methods
 
 end
 
@@ -23,5 +25,5 @@ class ActionDispatch::IntegrationTest
 
   include JsonHelper
   include AuthHelper
-
+  include FactoryBot::Syntax::Methods
 end

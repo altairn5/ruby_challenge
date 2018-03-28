@@ -2,14 +2,14 @@ module AuthHelper
   #
   # Generate an authentication header
   #
-  def authenticated_header(customer=Customer.first)
-    token = Knock::AuthToken.new(payload: { sub: customer.id }).token
-
+  def authenticated_header(token=nil)
+    # binding.pry
+    # token ||= generate_auth_token( customer )
     Hash('Authorization': "Bearer #{token}")
   end
 
   #
-  # Login as "user"
+  # Login as "Customer"
   #
   def login_as(email, password="123456")
     post api_v1_auth_path, params: Hash(auth: {email: email, password: password})
@@ -17,4 +17,9 @@ module AuthHelper
 
     parsed_response.dig('data', 'jwt')
   end
+
+  def generate_auth_token( customer=Customer.first )
+    token = Knock::AuthToken.new(payload: { sub: customer.id }).token
+  end
+
 end

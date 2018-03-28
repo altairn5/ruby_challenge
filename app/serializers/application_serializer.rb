@@ -1,22 +1,23 @@
 class ApplicationSerializer
-  attr_reader :collection
+  attr_reader :collection, :entity
 
   def initialize( options = {} )
     options.to_options!
+    @entity = options.fetch(:entity, 'data')
     @collection ||= options.fetch(:collection, false)
   end
 
-  def data
-    raise NotImplementedError
-  end
-
-  def errors
-    raise NotImplementedError
-  end
-
-  def errors?
-    false
-  end
+  # def data
+  #   raise NotImplementedError
+  # end
+  #
+  # def errors
+  #   raise NotImplementedError
+  # end
+  #
+  # def errors?
+  #   false
+  # end
 
   def as_json(&block)
     data_wrapper( data ).tap do |json|
@@ -38,6 +39,7 @@ class ApplicationSerializer
   end
 
   def root_wrapper( data )
-    Hash('data' => data )
+    # Hash('data' => data )
+    Hash(entity => data)
   end
 end

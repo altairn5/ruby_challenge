@@ -13,11 +13,13 @@ Rails.application.routes.draw do
       #
 
       #
-      # Products routes
+      # All Products routes
       #
 
+      get '/products', to: 'products#index', as: :products
+
       #
-      # Orders routes
+      # Orders for customer
       #
       get '/customers/:customer_id/orders', to: 'orders#index', as: :orders
 

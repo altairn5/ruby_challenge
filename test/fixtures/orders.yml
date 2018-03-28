@@ -2,10 +2,10 @@
 
 one:
   status: 0
-  customer: one 
+  # customer: one 
   products: two
 
 two:
   status: 0
-  customer: two
+  # customer: two
   products: one, three, six

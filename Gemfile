@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
+  'https://github.com/#{repo_name}.git'
 end
 
 
@@ -33,7 +33,7 @@ group :development, :test do
   # gem 'bullet',               '~> 5.5', '>= 5.5.1'
   # gem 'brakeman',             '~> 3.5'
   # gem 'rubocop',              '~> 0.47.1', require: false
-  gem 'faker',                '~> 1.7', '>= 1.7.3'
+  gem 'ffaker'
   # gem 'vcr',                  '~> 3.0', '>= 3.0.3'
 end
 
@@ -57,6 +57,7 @@ gem 'knock',              '~> 2.1.1'                  # jwt token auth
 gem 'redis',              '~> 3.3.3'                  # memory db
 gem 'redis-namespace',    '~> 1.5', '>= 1.5.3'        # namespace redis db
 gem 'json-schema',        '~> 2.8'                    # JSON schema tools
+gem 'factory_bot_rails',  '~> 4.0'
 # gem 'hashie',             '~> 3.5', '>= 3.5.5'        # Nested Hash -> Object lib
 # gem 'premailer-rails',    '~> 1.9', '>= 1.9.5'        # inline css for mailers
 # gem 'kaminari',           '~> 0.16.1'                 # API response pagination
