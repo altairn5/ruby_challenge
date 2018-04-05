@@ -1,9 +1,8 @@
 FactoryBot.define do
 
   factory :order do
-     customer
-     products
      status 0
+     association :customer, :products, :placements
    end
 
 end

@@ -2,9 +2,11 @@ class OrderSerializer < ApplicationSerializer
   attr_reader :orders, :total_count
 
   # change entity to data
-  def initialize( orders, options ={entity: 'orders'})
+  def initialize( orders, options ={})
     @orders = orders
     @total_count = orders.count
+
+    # set options ={entity: 'orders'} for order top level object
     super(options)
   end
 

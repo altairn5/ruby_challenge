@@ -8,6 +8,9 @@ module AuthHelper
     Hash('Authorization': "Bearer #{token}")
   end
 
+  # def headers(format_type="json")
+  #   Hash("Content-Type" => "application/#{format_type}")
+  # end
   #
   # Login as "Customer"
   #

@@ -1,12 +1,9 @@
-class Api::V1::OrdersController < ApplicationController
-  before_action :authenticate_customer
-  
+class Api::V1::OrdersController < Api::SecuredController
+
   def index
     @orders = current_customer.orders
     render json: ::OrderSerializer.new( @orders ), status: :ok
   end
-
-  private
 
 
 end

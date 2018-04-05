@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reports/products'
+
   post 'api/v1/auth/customer_token' => 'api/v1/auth/customer_token#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: :json } do
@@ -24,6 +26,13 @@ Rails.application.routes.draw do
       get '/customers/:customer_id/orders', to: 'orders#index', as: :orders
 
     end
+
+    #
+    # Reports routes
+    #
+
+    get '/reports/products' => 'reports#products'
+
     # root secured path, ie: /api
     root to: 'secured#index', as: :secured
 

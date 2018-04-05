@@ -7,18 +7,6 @@ class ApplicationSerializer
     @collection ||= options.fetch(:collection, false)
   end
 
-  # def data
-  #   raise NotImplementedError
-  # end
-  #
-  # def errors
-  #   raise NotImplementedError
-  # end
-  #
-  # def errors?
-  #   false
-  # end
-
   def as_json(&block)
     data_wrapper( data ).tap do |json|
       yield( json ) if block_given?
@@ -34,12 +22,10 @@ class ApplicationSerializer
   private
 
   def data_wrapper( data )
-    # (errors? ? errors : data).deep_stringify_keys
-    data.deep_stringify_keys
+      data.deep_stringify_keys
   end
 
   def root_wrapper( data )
-    # Hash('data' => data )
     Hash(entity => data)
   end
 end

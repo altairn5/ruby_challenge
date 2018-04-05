@@ -2,7 +2,7 @@
 
 one:
   status: 0
-  # customer: one 
+  # customer: one
   products: two
 
 two:

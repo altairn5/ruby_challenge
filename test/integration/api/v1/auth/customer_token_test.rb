@@ -2,11 +2,11 @@ require 'test_helper'
 
 class Api::V1::AuthTest < ActionDispatch::IntegrationTest
   let(:secured_route) { api_secured_path }
-  let(:login) { Hash(auth: Hash(email: "user@shipt.com", password: "123456")) }
-  let(:customer) { Customer.find_by(email: "user@shipt.com") }
+  let(:customer) {create(:customer)}
+  let(:login) { Hash(auth: Hash(email: customer.email, password: customer.password)) }
   let(:invalid_token) { "eyJ0eXAiOiJKV1QiLCJhbGciOqJIUzI1NiJ9.eyJleHAiOjE1MjIzNjExNzgsImF1ZCI6bnVsbCwic3ViIjoiYjZhNzBmOTktZDA3Ny01ZGUxLTg1MjItNzI1Y2VkMGZkZmJiIn0.Ws8ubXSQB69Rn7d8AKVoUkgZAB9HMY3xE2H-sxRuS2U" }
 
-
+  #clean up
   it 'creates auth_token' do
     post api_v1_auth_path, params: login
     assert_response :success

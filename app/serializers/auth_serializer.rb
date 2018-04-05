@@ -14,14 +14,4 @@ class AuthSerializer < ApplicationSerializer
     )
   end
 
-  # def errors
-  #   ErrorSerializer.new(
-  #     code: 10002,
-  #     errors: Hash( customer: ["has errors"] )
-  #   ).as_json
-  # end
-  #
-  # def errors?
-  #   customer.errors.any?
-  # end
 end

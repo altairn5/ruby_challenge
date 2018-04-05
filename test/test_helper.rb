@@ -12,7 +12,7 @@ Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  # fixtures :all
 
   # Includes helper methods modules to be used by all tests
   include JsonHelper

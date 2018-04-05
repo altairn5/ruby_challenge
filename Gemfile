@@ -30,11 +30,7 @@ group :development, :test do
   gem 'dotenv-rails',         '~> 2.2'
   gem 'webmock',              '~> 2.3', '>= 2.3.2'
   gem 'timecop',              '~> 0.8.1'
-  # gem 'bullet',               '~> 5.5', '>= 5.5.1'
-  # gem 'brakeman',             '~> 3.5'
-  # gem 'rubocop',              '~> 0.47.1', require: false
   gem 'ffaker'
-  # gem 'vcr',                  '~> 3.0', '>= 3.0.3'
 end
 
 group :development do

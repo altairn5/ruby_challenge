@@ -1,2 +1,2 @@
-class Api::V1::CustomersController < ApplicationController
+class Api::V1::CustomersController < Api::SecuredController 
 end
