@@ -2,15 +2,14 @@ require 'test_helper'
 
 class ReportsTest < ActionDispatch::IntegrationTest
 
-  it "should get all products with no auth token" do
+  it 'reaches endpoint without auth token' do
     get reports_products_url, params: {}, headers: authenticated_header( nil )
     assert_response :success
   end
 
-  #clean up
-  describe "Products" do
-    let(:start_date) { (Time.now - 7.days).strftime("%Y-%m-%d") }
-    let(:end_date) { (Time.now + 2.day).strftime("%Y-%m-%d") }
+  describe 'Products' do
+    let(:start_date) { (Time.now - 7.days).strftime('%Y-%m-%d') }
+    let(:end_date) { (Time.now + 2.day).strftime('%Y-%m-%d') }
     let(:cust) { create(:customer) }
     let(:products) { create_list(:product, 10) }
     let(:order) { build(:order, products: products, customer: cust) }
@@ -22,27 +21,27 @@ class ReportsTest < ActionDispatch::IntegrationTest
       order.save!
     end
 
-    it "handles start and end date product_params" do
-      get reports_products_url, params: Hash(products: product_params), headers: authenticated_header
+    it 'defaults to sort_by day when omitted' do
+      get reports_products_url, params: product_params, headers: authenticated_header
         assert_response :ok
 
         parsed_response.dig('data').tap do |json|
           assert  json.key?('items_sold')
           assert  json.key?('sorted_by')
           assert  json.key?('products')
-          assert_match %r{\d{4}-\d{2}-\d{2}}, parsed_response.dig("data", "products").keys[0]
+          assert_match %r{\d{4}-\d{2}-\d{2}}, json.dig('products').keys[0]
         end
     end
 
-    it "handles sort_by product_params" do
-      get reports_products_url, params: Hash(products: product_params.merge(sort_by: 'week') ), headers: authenticated_header
+    it 'handles sort_by product_params' do
+      get reports_products_url, params: product_params.merge(sort_by: 'week'), headers: authenticated_header
         assert_response :ok
 
         parsed_response.dig('data').tap do |json|
           assert  json.key?('items_sold')
           assert  json.key?('sorted_by')
           assert  json.key?('products')
-          assert_equal parsed_response.dig("data", "sorted_by"), 'week'
+          assert_equal json.dig('sorted_by'), 'week'
         end
     end
 

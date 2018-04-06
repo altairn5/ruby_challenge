@@ -5,8 +5,9 @@ class OrderTest < ActiveSupport::TestCase
   let(:customer) { create(:customer) }
   let(:order)    { create(:order, products: [product], customer: customer)}
 
-  it "has total field" do
+  it "has attribute total" do
     assert_respond_to(order, :total)
+    assert_equal order.total, product.price
   end
 
   describe "associations" do
@@ -17,13 +18,12 @@ class OrderTest < ActiveSupport::TestCase
     it { assert_respond_to(order, :placements) }
     it { assert_respond_to(order, :products) }
 
-    #clean up
     it "can order multiple quantities of the same product" do
+
       assert_difference ->{new_order.placements.size}, 2 do
         new_order.multiple_quantities([[product_1.id, 10], [product_2.id, 5]])
         new_order.save!
       end
-
     end
 
     it "has correct total amount" do

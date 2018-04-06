@@ -1,6 +1,6 @@
 require 'factory_bot'
 
-  namespace :generate do
+  namespace :db do
 
     desc "query returns: customer_id customer_first_name category_id category_name number_purchased"
     task seed_data: :environment do

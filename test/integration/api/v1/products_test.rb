@@ -3,17 +3,15 @@ require 'test_helper'
 class Api::V1::ProductsTest < ActionDispatch::IntegrationTest
 
   describe "GET Products" do
-
-    let(:customer) { create(:customer) } #factory_bot
-    let(:products) { create_list(:product, 5) } #factory_bot
+    let(:customer) { create(:customer) }
+    let(:products) { create_list(:product, 5) }
+    let(:login )   { Hash(auth: Hash(email: customer.email, password: customer.password)) }
 
     before do
       create(:order, products: products, customer: customer)
     end
-    #clean up
-    it "retrieve all products for a customer" do
-      login = Hash(auth: Hash(email: customer.email, password: customer.password))
 
+    it "retrieve all products for a customer" do
       post api_v1_auth_path, params: login
       token = parsed_response.dig('data', 'jwt')
 

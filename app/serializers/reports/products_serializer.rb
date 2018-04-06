@@ -4,7 +4,7 @@ class Reports::ProductsSerializer < ApplicationSerializer
   def initialize( sort_by_params, products, options={})
     @sort_by_params = sort_by_params
     @products = products
-    # set options ={entity: 'products_sold'} for top level object wrapper
+
     super(options)
   end
 

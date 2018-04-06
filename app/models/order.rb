@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  before_validation :get_total!
   #
   # Associations
   #
@@ -10,7 +9,8 @@ class Order < ApplicationRecord
   #
   # Validations
   #
-  validates :total, numericality: { greater_than_or_equal_to: 0 }, presence: true
+  before_validation :get_total!
+  validates :total, presence: true, numericality: { greater_than_or_equal_to: 0}
   validates :customer_id, presence: true
 
   # default: :pending
@@ -19,7 +19,7 @@ class Order < ApplicationRecord
   #
   # Callbacks
   #
-
+  # before_validation :get_total!
 
   #
   # instance methods
@@ -35,7 +35,8 @@ class Order < ApplicationRecord
   def get_total!
     self.total = 0
     self.placements.each do |placement|
-      self.total += placement.product.price * placement.quantity
+      self.total += placement.product.price * placement.product_quantity
     end
   end
+
 end

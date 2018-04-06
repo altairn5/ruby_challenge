@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PlacementTest < ActiveSupport::TestCase
-  #clean up
+
   describe "Placement" do
     let(:placement) { Placement.new }
 

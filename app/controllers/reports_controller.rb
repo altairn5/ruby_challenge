@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    if !params.include?(:products)
+    if !params.include?(:start_date)
       render json: {}, status: :ok
     else
       products_params
@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
   end
 
   def products_params
-    params.require(:products).permit(:start_date, :end_date, :sort_by, :format)
+    params.permit(:start_date, :end_date, :sort_by, :format)
   end
 
 end

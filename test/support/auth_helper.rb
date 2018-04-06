@@ -3,8 +3,6 @@ module AuthHelper
   # Generate an authentication header
   #
   def authenticated_header(token=nil)
-    # binding.pry
-    # token ||= generate_auth_token( customer )
     Hash('Authorization': "Bearer #{token}")
   end
 

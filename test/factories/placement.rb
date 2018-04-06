@@ -1,6 +1,8 @@
 FactoryBot.define do
 
   factory :placement do
+     order
+     product
      quantity 1
      #fix below
      trait :quantities do

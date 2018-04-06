@@ -4,7 +4,6 @@ class ApplicationSerializer
   def initialize( options = {} )
     options.to_options!
     @entity = options.fetch(:entity, 'data')
-    @collection ||= options.fetch(:collection, false)
   end
 
   def as_json(&block)
