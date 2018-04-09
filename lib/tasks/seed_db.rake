@@ -19,7 +19,7 @@ require 'factory_bot'
         product_list_2 = create_list(:product, 5, :multiple_categories)
         product_list_3 = create_list(:product, 3)
 
-        order_1 = build(:order, products: product_list_1, customer: cust_1)
+        order_1 = build(:order, customer: cust_1)
         order_2 = create(:order, products: product_list_2, customer: cust_2)
         order_3 = create(:order, products: product_list_3, customer: cust_3)
 

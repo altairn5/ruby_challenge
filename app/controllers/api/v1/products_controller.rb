@@ -1,6 +1,5 @@
 class Api::V1::ProductsController < Api::SecuredController
 
-
   def index
     @products = current_customer.products
     response = Hash(data: Hash(products: @products))
